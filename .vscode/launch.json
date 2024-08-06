@@ -5,18 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "practical_growth_route_network",
+      "name": "practical_growth_route_network_package",
       "request": "launch",
       "type": "dart"
     },
     {
-      "name": "practical_growth_route_network (profile mode)",
+      "name": "practical_growth_route_network_package (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"
     },
     {
-      "name": "practical_growth_route_network (release mode)",
+      "name": "practical_growth_route_network_package (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"

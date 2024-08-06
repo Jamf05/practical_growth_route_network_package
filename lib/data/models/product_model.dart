@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:practical_growth_route_network/data/models/rating_model.dart';
+import 'package:practical_growth_route_network_package/data/models/rating_model.dart';
 
 /// A model class representing a product.
 /// This class extends [Equatable] to allow for value comparison.

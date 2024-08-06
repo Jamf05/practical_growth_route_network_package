@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:practical_growth_route_network/core/error_handling/failure.dart';
-import 'package:practical_growth_route_network/core/types/use_case.dart';
-import 'package:practical_growth_route_network/data/models/product_model.dart';
-import 'package:practical_growth_route_network/domain/repository/product_repository.dart';
+import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
+import 'package:practical_growth_route_network_package/core/types/use_case.dart';
+import 'package:practical_growth_route_network_package/data/models/product_model.dart';
+import 'package:practical_growth_route_network_package/domain/repositories/product_repository.dart';
 
 /// Use case for retrieving products by category.
 /// Implements the [UseCase] interface with a list of [ProductModel] as the output and a [String] as the input.

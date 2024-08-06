@@ -171,7 +171,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
-  practical_growth_route_network:
+  practical_growth_route_network_package:
     dependency: "direct main"
     description:
       path: ".."

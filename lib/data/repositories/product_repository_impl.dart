@@ -1,8 +1,8 @@
-import 'package:practical_growth_route_network/data/data_sources/product_data_source.dart';
-import 'package:practical_growth_route_network/data/models/product_model.dart';
-import 'package:practical_growth_route_network/core/error_handling/failure.dart';
+import 'package:practical_growth_route_network_package/data/data_sources/product_data_source.dart';
+import 'package:practical_growth_route_network_package/data/models/product_model.dart';
+import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:practical_growth_route_network/domain/repository/product_repository.dart';
+import 'package:practical_growth_route_network_package/domain/repositories/product_repository.dart';
 
 /// Implementation of the [ProductRepository] interface.
 /// This class handles the data operations related to products.

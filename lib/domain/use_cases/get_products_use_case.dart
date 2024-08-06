@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:practical_growth_route_network/core/error_handling/failure.dart';
-import 'package:practical_growth_route_network/core/types/no_params.dart';
-import 'package:practical_growth_route_network/core/types/use_case.dart';
-import 'package:practical_growth_route_network/data/models/product_model.dart';
-import 'package:practical_growth_route_network/domain/repository/product_repository.dart';
+import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
+import 'package:practical_growth_route_network_package/core/types/no_params.dart';
+import 'package:practical_growth_route_network_package/core/types/use_case.dart';
+import 'package:practical_growth_route_network_package/data/models/product_model.dart';
+import 'package:practical_growth_route_network_package/domain/repositories/product_repository.dart';
 
 /// Use case for fetching a list of products.
 class GetProductsUseCase implements UseCase<List<ProductModel>, NoParams> {

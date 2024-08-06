@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:practical_growth_route_network/core/error_handling/failure.dart';
-import 'package:practical_growth_route_network/data/models/product_model.dart';
+import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
+import 'package:practical_growth_route_network_package/data/models/product_model.dart';
 
 /// Abstract class representing a repository for managing products.
 abstract class ProductRepository {

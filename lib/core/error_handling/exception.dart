@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:http/http.dart';
-import 'package:practical_growth_route_network/core/error_handling/failure.dart';
+import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
 
 /// A class representing a failure caused by an exception.
 /// Extends the [Failure] class.
@@ -56,7 +56,7 @@ class ClientFailure extends Failure {
     log(exception.toString(), name: 'FAILURE[CLIENTEXCEPTION]');
     return ClientFailure._(
       exception: exception,
-      message: exception.toString(),
+      message: exception?.message ?? '',
     );
   }
   

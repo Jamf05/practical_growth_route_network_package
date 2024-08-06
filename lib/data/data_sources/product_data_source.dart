@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:practical_growth_route_network/core/env/environment.dart';
-import 'package:practical_growth_route_network/core/error_handling/error.dart';
-import 'package:practical_growth_route_network/core/error_handling/exception.dart';
-import 'package:practical_growth_route_network/core/error_handling/http_client_response.dart';
-import 'package:practical_growth_route_network/data/models/product_model.dart';
+import 'package:practical_growth_route_network_package/core/env/environment.dart';
+import 'package:practical_growth_route_network_package/core/error_handling/error.dart';
+import 'package:practical_growth_route_network_package/core/error_handling/exception.dart';
+import 'package:practical_growth_route_network_package/core/error_handling/http_client_response.dart';
+import 'package:practical_growth_route_network_package/data/models/product_model.dart';
 
 /// Interface that defines the operations for fetching products.
 abstract class ProductDataSource {
