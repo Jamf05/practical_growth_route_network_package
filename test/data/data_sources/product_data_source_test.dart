@@ -50,6 +50,7 @@ void main() {
 
       // assert
       expect(result, equals(tList));
+      verify(() => mockClient.get(tUri));
     });
 
     test('should return a client failure response when api return status code 500', () async {
