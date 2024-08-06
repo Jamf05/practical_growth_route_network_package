@@ -40,7 +40,7 @@ class ProductDataSourceImpl implements ProductDataSource {
   @override
   Future<List<ProductModel>> getProducts() async {
     try {
-      const uri = '${const String.fromEnvironment(Environment.api)}/products';
+      const uri = '${Environment.api}/products';
       final response = await client.get(Uri.parse(uri));
       HttpClientResponse.validate(response);
       final data = json.decode(response.body);
@@ -67,8 +67,7 @@ class ProductDataSourceImpl implements ProductDataSource {
   @override
   Future<List<String>> getCategories() async {
     try {
-      const uri =
-          '${const String.fromEnvironment(Environment.api)}/products/categories';
+      const uri = '${Environment.api}/products/categories';
       final response = await client.get(Uri.parse(uri));
       HttpClientResponse.validate(response);
       final data = json.decode(response.body);
@@ -99,8 +98,7 @@ class ProductDataSourceImpl implements ProductDataSource {
     required String category,
   }) async {
     try {
-      final uri =
-          '${const String.fromEnvironment(Environment.api)}/products/category/$category';
+      final uri = '${Environment.api}/products/category/$category';
       final response = await client.get(Uri.parse(uri));
       HttpClientResponse.validate(response);
       final data = json.decode(response.body);

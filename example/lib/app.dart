@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           }
           return ListView.builder(
-            padding: const EdgeInsets.only(left: 8, right: 8, bottom: 40),
+            padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 40),
             itemCount: changeNotifier.products.length,
             itemBuilder: (context, index) {
               final product = changeNotifier.products[index];
