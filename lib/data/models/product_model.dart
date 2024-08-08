@@ -25,23 +25,30 @@ class ProductModel extends Equatable {
   });
 
   /// Creates a [ProductModel] instance from a Map object.
-  /// 
+  ///
   /// The [json] parameter must be a map with keys corresponding to the fields
   /// of the [ProductModel] class.
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
         id: int.tryParse((json['id']).toString()),
         title: json['title'],
         price: double.tryParse((json['price']).toString()),
-        description: json['description'],
-        category: json['category'],
-        image: json['image'],
+        description:
+            json['description'] != null && json['description'] is String
+                ? json['description']
+                : '',
+        category: json['category'] != null && json['category'] is String
+            ? json['category']
+            : '',
+        image: json['image'] != null && json['image'] is String
+            ? json['image']
+            : '',
         rating: json['rating'] != null && json['rating'] is Map
             ? RatingModel.fromJson(json['rating'])
             : null,
       );
 
   /// Converts the [ProductModel] instance to a Map object.
-  /// 
+  ///
   /// Returns a map with keys corresponding to the fields of the [ProductModel] class.
   Map<String, dynamic> toJson() => {
         'id': id,

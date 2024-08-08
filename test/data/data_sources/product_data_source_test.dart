@@ -4,6 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:practical_growth_route_network_package/core/env/environment.dart';
+import 'package:practical_growth_route_network_package/core/error_handling/error.dart';
 import 'package:practical_growth_route_network_package/core/error_handling/exception.dart';
 import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
 
@@ -53,7 +54,9 @@ void main() {
       verify(() => mockClient.get(tUri));
     });
 
-    test('should return a client failure response when api return status code 500', () async {
+    test(
+        'should return a client failure response when api return status code 500',
+        () async {
       // arrange
       const tMessage = 'Status code: 500';
 
@@ -75,7 +78,9 @@ void main() {
       expect(result.message, equals(tMessage));
     });
 
-    test('should return a exception failure response when data api return is not a list', () async {
+    test(
+        'should return a exception failure response when data api return is not a list',
+        () async {
       // arrange
       const Map tRawData = {};
       const tMessage = 'FormatException: Data is not a List';
@@ -98,6 +103,29 @@ void main() {
       expect(result, isA<Failure>());
       expect(result, isA<ExceptionFailure>());
       expect((result as ExceptionFailure).exception, isA<FormatException>());
+      expect(result.message, equals(tMessage));
+    });
+
+    test('should return a error failure response when client return out of memory error',
+        () async {
+      // arrange
+      const tError = OutOfMemoryError();
+      const tMessage = 'Out of Memory';
+
+      when(() => mockClient.get(tUri)).thenThrow(tError);
+
+      // act
+      Object? result;
+      try {
+        result = await dataSource.getProducts();
+      } catch (e) {
+        result = e;
+      }
+
+      // assert
+      expect(result, isA<Failure>());
+      expect(result, isA<ErrorFailure>());
+      expect((result as ErrorFailure).error, isA<OutOfMemoryError>());
       expect(result.message, equals(tMessage));
     });
   });
@@ -124,7 +152,9 @@ void main() {
       expect(result, equals(tList));
     });
 
-    test('should return a client failure response when api return status code 500', () async {
+    test(
+        'should return a client failure response when api return status code 500',
+        () async {
       // arrange
       const tMessage = 'Status code: 500';
 
@@ -146,7 +176,9 @@ void main() {
       expect(result.message, equals(tMessage));
     });
 
-    test('should return a exception failure response when data api return is not a list', () async {
+    test(
+        'should return a exception failure response when data api return is not a list',
+        () async {
       // arrange
       const Map tRawData = {};
       const tMessage = 'FormatException: Data is not a List';
@@ -169,6 +201,29 @@ void main() {
       expect(result, isA<Failure>());
       expect(result, isA<ExceptionFailure>());
       expect((result as ExceptionFailure).exception, isA<FormatException>());
+      expect(result.message, equals(tMessage));
+    });
+
+    test('should return a error failure response when client return out of memory error',
+        () async {
+      // arrange
+      const tError = OutOfMemoryError();
+      const tMessage = 'Out of Memory';
+
+      when(() => mockClient.get(tUri)).thenThrow(tError);
+
+      // act
+      Object? result;
+      try {
+        result = await dataSource.getCategories();
+      } catch (e) {
+        result = e;
+      }
+
+      // assert
+      expect(result, isA<Failure>());
+      expect(result, isA<ErrorFailure>());
+      expect((result as ErrorFailure).error, isA<OutOfMemoryError>());
       expect(result.message, equals(tMessage));
     });
   });
@@ -198,7 +253,9 @@ void main() {
       expect(result, equals(tList));
     });
 
-    test('should return a client failure response when api return status code 500', () async {
+    test(
+        'should return a client failure response when api return status code 500',
+        () async {
       // arrange
       const tMessage = 'Status code: 500';
 
@@ -220,7 +277,9 @@ void main() {
       expect(result.message, equals(tMessage));
     });
 
-    test('should return a exception failure response when data api return is not a list', () async {
+    test(
+        'should return a exception failure response when data api return is not a list',
+        () async {
       // arrange
       const Map tRawData = {};
       const tMessage = 'FormatException: Data is not a List';
@@ -243,6 +302,29 @@ void main() {
       expect(result, isA<Failure>());
       expect(result, isA<ExceptionFailure>());
       expect((result as ExceptionFailure).exception, isA<FormatException>());
+      expect(result.message, equals(tMessage));
+    });
+
+    test('should return a error failure response when client return out of memory error',
+        () async {
+      // arrange
+      const tError = OutOfMemoryError();
+      const tMessage = 'Out of Memory';
+
+      when(() => mockClient.get(tUri)).thenThrow(tError);
+
+      // act
+      Object? result;
+      try {
+        result = await dataSource.getProductsByCategory(category: tCategory);
+      } catch (e) {
+        result = e;
+      }
+
+      // assert
+      expect(result, isA<Failure>());
+      expect(result, isA<ErrorFailure>());
+      expect((result as ErrorFailure).error, isA<OutOfMemoryError>());
       expect(result.message, equals(tMessage));
     });
   });
