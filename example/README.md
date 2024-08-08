@@ -2,15 +2,19 @@
 
 A new Flutter project.
 
+## Requirements
+
+- Any Operating System (ie. MacOS X, Linux, Windows)
+- Any IDE with Flutter SDK installed (ie. IntelliJ, Android Studio, VSCode etc)
+- A little knowledge of Dart and Flutter
+- Version summary:
+
+    ```plain
+    Dart SDK version: 3.4.4 (stable) (Wed Jun 12 15:54:31 2024 +0000) on "macos_arm64"
+    ```
+
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter run
+````

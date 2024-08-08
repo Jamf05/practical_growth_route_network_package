@@ -11,29 +11,75 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A package in flutter that makes it easy to connect to the fakestoreapi.com API. It exposes use cases that, in the context of a clean architecture, are used to encapsulate the connection and management of the data provided by the fakestoreapi API.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- The `GetCategoriesUseCase` class connects to `https://fakestoreapi.com/products`
+- The `GetProductsByCategoryUseCase` class connects to `https://fakestoreapi.com/products/categories`
+- The `GetProductsUseCase` class connects to `https://fakestoreapi.com/products/category`
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+### Requirements
+
+- Any Operating System (ie. MacOS X, Linux, Windows)
+- Any IDE with Flutter SDK installed (ie. IntelliJ, Android Studio, VSCode etc)
+- A little knowledge of Dart and Flutter
+- Version summary:
+
+    ```plain
+    Flutter 3.22.3 • channel stable • https://github.com/flutter/flutter.git
+    Framework • revision b0850beeb2 (hace 3 semanas) • 2024-07-16 21:43:41 -0700
+    Engine • revision 235db911ba
+    Tools • Dart 3.4.4 • DevTools 2.34.3
+    ```
+
+### Packages
+
+| Name                                                                              | Usage                                               |
+| --------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [**Dartz**](https://pub.dev/packages/dartz)                                       | Functional Error Handling                           |
+| [**Equatable**](https://pub.dev/packages/equatable)                               | A Dart package that helps to implement value based equality without needing to explicitly override == and hashCode. |
+| [**Http**](https://pub.dev/packages/http)                                         | A composable, multi-platform, Future-based API for HTTP requests. |
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### Build Dependencies
 
 ```dart
-const like = 'sample';
+final http.Client client = http.Client();
+final ProductDataSource dataSource = ProductDataSourceImpl(client: client);
+final ProductRepository repository = ProductRepositoryImpl(productDataSource: dataSource);
+final GetProductsUseCase getProductsUseCase = GetProductsUseCase(productRepository: repository);
 ```
+
+### Call the use case
+
+```dart
+final result = await getProductsUseCase.call(NoParams());
+result.fold(
+  (failure) {
+    // TODO: handle error
+  },
+  (products) {
+    // TODO: handle response
+  },
+);
+```
+
+### Error handling
+
+Internally, the package works with an assignment of Failures based on the error or exception that you want to handle. The assignment of Failures is done like this:
+
+Example:
+
+| Error   | Exception          | Failure              |
+|---------|--------------------|----------------------|
+| `Error` | x                  | `ErrorFailure`       |
+| x       | `Exception`        | `ExceptionFailure`   |
+| x       | `ClientException`  | `ClientFailure`      |
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+[**Jorge A. Mogotocoro F.**](https://www.linkedin.com/in/jorgemogotocoro/)
