@@ -31,8 +31,16 @@ class ErrorFailure extends Failure {
   }
 
   @override
-  List<Object?> get props => [
-        error,
-        message,
-      ];
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+
+    return other is ErrorFailure &&
+        other.error == error &&
+        other.message == message;
+  }
+
+  @override
+  int get hashCode => error.hashCode ^ message.hashCode;
 }

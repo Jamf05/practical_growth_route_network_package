@@ -57,7 +57,7 @@ final GetProductsUseCase getProductsUseCase = GetProductsUseCase(productReposito
 ### Call the use case
 
 ```dart
-final result = await getProductsUseCase.call(NoParams());
+final result = await getProductsUseCase.call(const NoParams());
 result.fold(
   (failure) {
     // TODO: handle error

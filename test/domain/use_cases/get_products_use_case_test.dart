@@ -39,7 +39,7 @@ void main() {
           .thenAnswer((_) async => Right(tList));
 
       // act
-      final result = await useCase.call(NoParams());
+      final result = await useCase.call(const NoParams());
       final resultList =
           result.fold<List<ProductModel>?>((l) => null, (r) => r);
 
@@ -61,7 +61,7 @@ void main() {
           .thenAnswer((_) async => Left(tFailure));
 
       // act
-      final result = await useCase.call(NoParams());
+      final result = await useCase.call(const NoParams());
       final resultFailure = result.fold<Failure?>((l) => l, (r) => null);
 
       // assert
@@ -83,7 +83,7 @@ void main() {
           .thenAnswer((_) async => Left(tFailure));
 
       // act
-      final result = await useCase.call(NoParams());
+      final result = await useCase.call(const NoParams());
       final resultFailure = result.fold<Failure?>((l) => l, (r) => null);
 
       // assert

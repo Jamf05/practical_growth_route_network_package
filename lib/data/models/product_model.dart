@@ -1,9 +1,6 @@
-import 'package:equatable/equatable.dart';
 import 'package:practical_growth_route_network_package/data/models/rating_model.dart';
 
-/// A model class representing a product.
-/// This class extends [Equatable] to allow for value comparison.
-class ProductModel extends Equatable {
+final class ProductModel {
   final int? id;
   final String? title;
   final double? price;
@@ -12,8 +9,6 @@ class ProductModel extends Equatable {
   final String? image;
   final RatingModel? rating;
 
-  /// Constructs a [ProductModel] instance.
-  /// All fields are optional and can be null.
   const ProductModel({
     this.id,
     this.title,
@@ -24,10 +19,6 @@ class ProductModel extends Equatable {
     this.rating,
   });
 
-  /// Creates a [ProductModel] instance from a Map object.
-  ///
-  /// The [json] parameter must be a map with keys corresponding to the fields
-  /// of the [ProductModel] class.
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
         id: int.tryParse((json['id']).toString()),
         title: json['title'],
@@ -47,9 +38,6 @@ class ProductModel extends Equatable {
             : null,
       );
 
-  /// Converts the [ProductModel] instance to a Map object.
-  ///
-  /// Returns a map with keys corresponding to the fields of the [ProductModel] class.
   Map<String, dynamic> toJson() => {
         'id': id,
         'title': title,
@@ -60,16 +48,29 @@ class ProductModel extends Equatable {
         'rating': rating?.toJson(),
       };
 
-  /// Overrides the [props] getter from [Equatable] to include all fields
-  /// for value comparison.
   @override
-  List<Object?> get props => [
-        id,
-        title,
-        price,
-        description,
-        category,
-        image,
-        rating,
-      ];
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+
+    return other is ProductModel &&
+        other.id == id &&
+        other.title == title &&
+        other.price == price &&
+        other.description == description &&
+        other.category == category &&
+        other.image == image &&
+        other.rating == rating;
+  }
+
+  @override
+  int get hashCode =>
+      id.hashCode ^
+      title.hashCode ^
+      price.hashCode ^
+      description.hashCode ^
+      category.hashCode ^
+      image.hashCode ^
+      rating.hashCode;
 }

@@ -19,7 +19,7 @@ class MyAppChangeNotifier extends ChangeNotifier {
   void getProducts() async {
     _isLoading = true;
     notifyListeners();
-    final result = await _getProductsUseCase.call(NoParams());
+    final result = await _getProductsUseCase.call(const NoParams());
     result.fold(
       (failure) => log('Error: $failure'),
       (products) {

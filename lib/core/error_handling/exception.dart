@@ -27,12 +27,20 @@ class ExceptionFailure extends Failure {
       message: exception.toString(),
     );
   }
-  
+
   @override
-  List<Object?> get props => [
-    exception,
-    message,
-  ];
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+
+    return other is ExceptionFailure &&
+        other.exception == exception &&
+        other.message == message;
+  }
+
+  @override
+  int get hashCode => exception.hashCode ^ message.hashCode;
 }
 
 /// A class representing a failure caused by a client exception.
@@ -51,7 +59,6 @@ class ClientFailure extends Failure {
     this.exception,
   });
 
-  
   factory ClientFailure.decode(ClientException? exception) {
     log(exception.toString(), name: 'FAILURE[CLIENTEXCEPTION]');
     return ClientFailure._(
@@ -59,10 +66,18 @@ class ClientFailure extends Failure {
       message: exception?.message ?? '',
     );
   }
-  
+
   @override
-  List<Object?> get props => [
-    exception,
-    message,
-  ];
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+
+    return other is ClientFailure &&
+        other.exception == exception &&
+        other.message == message;
+  }
+
+  @override
+  int get hashCode => exception.hashCode ^ message.hashCode;
 }
