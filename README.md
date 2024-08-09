@@ -47,11 +47,11 @@ Un paquete en Flutter que facilita la conexión con la API de fakestoreapi.com. 
 /// Crear instancia del paquete
 final PracticalGrowthRouteNetworkPackage package = PracticalGrowthRouteNetworkPackage();
 
-/// Llama el método que obtiene una lista de categorías
+/// Llamar el método que obtiene una lista de categorías
 final result = await package.getCategories();
 result.fold(
  (failure) => log('Error: $failure'),
- (categories) => log('Categories: $categories'),
+ (categories) => log('Categorias: $categories'),
 );
 ```
 

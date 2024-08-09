@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryLo">55.6&nbsp;%</td>
-            <td class="headerCovTableEntry">18</td>
-            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryLo">54.5&nbsp;%</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntry">12</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2024-08-08 10:36:44</td>
+            <td class="headerValue">2024-08-09 17:06:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -62,26 +62,26 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : import 'dart:developer';</span>
 <span id="L2"><span class="lineNum">       2</span>              : import 'package:http/http.dart';</span>
-<span id="L3"><span class="lineNum">       3</span>              : import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';</span>
+<span id="L3"><span class="lineNum">       3</span>              : import 'package:practical_growth_route_network_package/src/core/error_handling/failure.dart';</span>
 <span id="L4"><span class="lineNum">       4</span>              : </span>
-<span id="L5"><span class="lineNum">       5</span>              : /// A class representing a failure caused by an exception.</span>
-<span id="L6"><span class="lineNum">       6</span>              : /// Extends the [Failure] class.</span>
-<span id="L7"><span class="lineNum">       7</span>              : class ExceptionFailure extends Failure {</span>
-<span id="L8"><span class="lineNum">       8</span>              :   /// The exception that caused the failure.</span>
-<span id="L9"><span class="lineNum">       9</span>              :   final Exception? exception;</span>
-<span id="L10"><span class="lineNum">      10</span>              : </span>
-<span id="L11"><span class="lineNum">      11</span>              :   /// A message describing the failure.</span>
+<span id="L5"><span class="lineNum">       5</span>              : /// Una clase que representa un fallo de tipo excepción y que extiende de la clase [Failure].</span>
+<span id="L6"><span class="lineNum">       6</span>              : class ExceptionFailure extends Failure {</span>
+<span id="L7"><span class="lineNum">       7</span>              :   /// La excepción que causó el fallo.</span>
+<span id="L8"><span class="lineNum">       8</span>              :   final Exception? exception;</span>
+<span id="L9"><span class="lineNum">       9</span>              : </span>
+<span id="L10"><span class="lineNum">      10</span>              :   /// El mensaje que describe el fallo.</span>
+<span id="L11"><span class="lineNum">      11</span>              :   /// El mensaje tiene valor de `error.toString()`.</span>
 <span id="L12"><span class="lineNum">      12</span>              :   @override</span>
 <span id="L13"><span class="lineNum">      13</span>              :   final String message;</span>
 <span id="L14"><span class="lineNum">      14</span>              : </span>
-<span id="L15"><span class="lineNum">      15</span>              :   /// Private constructor for [ExceptionFailure].</span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC tlaBgGNC">           5 :   ExceptionFailure._({</span></span>
-<span id="L17"><span class="lineNum">      17</span>              :     required this.message,</span>
-<span id="L18"><span class="lineNum">      18</span>              :     this.exception,</span>
-<span id="L19"><span class="lineNum">      19</span>              :   });</span>
-<span id="L20"><span class="lineNum">      20</span>              : </span>
-<span id="L21"><span class="lineNum">      21</span>              :   /// Factory constructor to create an [ExceptionFailure] from an [Exception].</span>
-<span id="L22"><span class="lineNum">      22</span>              :   /// Logs the exception and returns an instance of [ExceptionFailure].</span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC tlaBgGNC">           5 :   ExceptionFailure._({</span></span>
+<span id="L16"><span class="lineNum">      16</span>              :     required this.message,</span>
+<span id="L17"><span class="lineNum">      17</span>              :     this.exception,</span>
+<span id="L18"><span class="lineNum">      18</span>              :   });</span>
+<span id="L19"><span class="lineNum">      19</span>              : </span>
+<span id="L20"><span class="lineNum">      20</span>              :   /// - Constructor factory para crear un [ExceptionFailure] a partir de una [Exception].</span>
+<span id="L21"><span class="lineNum">      21</span>              :   /// - Inicializa el mensaje con el valor de `error.toString()`.</span>
+<span id="L22"><span class="lineNum">      22</span>              :   /// - Registra el error en el log.</span>
 <span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           5 :   factory ExceptionFailure.decode(Exception? exception) {</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">          10 :     log(exception.toString(), name: 'FAILURE[EXCEPTION]');</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           5 :     return ExceptionFailure._(</span></span>
@@ -89,45 +89,62 @@
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           5 :       message: exception.toString(),</span></span>
 <span id="L28"><span class="lineNum">      28</span>              :     );</span>
 <span id="L29"><span class="lineNum">      29</span>              :   }</span>
-<span id="L30"><span class="lineNum">      30</span>              :   </span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC tlaBgUNC">           0 :   @override</span></span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC">           0 :   List&lt;Object?&gt; get props =&gt; [</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC">           0 :     exception,</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC">           0 :     message,</span></span>
-<span id="L35"><span class="lineNum">      35</span>              :   ];</span>
-<span id="L36"><span class="lineNum">      36</span>              : }</span>
-<span id="L37"><span class="lineNum">      37</span>              : </span>
-<span id="L38"><span class="lineNum">      38</span>              : /// A class representing a failure caused by a client exception.</span>
-<span id="L39"><span class="lineNum">      39</span>              : /// Extends the [Failure] class.</span>
-<span id="L40"><span class="lineNum">      40</span>              : class ClientFailure extends Failure {</span>
-<span id="L41"><span class="lineNum">      41</span>              :   /// The client exception that caused the failure.</span>
-<span id="L42"><span class="lineNum">      42</span>              :   final ClientException? exception;</span>
-<span id="L43"><span class="lineNum">      43</span>              : </span>
-<span id="L44"><span class="lineNum">      44</span>              :   /// A message describing the failure.</span>
-<span id="L45"><span class="lineNum">      45</span>              :   @override</span>
-<span id="L46"><span class="lineNum">      46</span>              :   final String message;</span>
-<span id="L47"><span class="lineNum">      47</span>              : </span>
-<span id="L48"><span class="lineNum">      48</span>              :   /// Private constructor for [ClientFailure].</span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC tlaBgGNC">           5 :   ClientFailure._({</span></span>
-<span id="L50"><span class="lineNum">      50</span>              :     required this.message,</span>
-<span id="L51"><span class="lineNum">      51</span>              :     this.exception,</span>
-<span id="L52"><span class="lineNum">      52</span>              :   });</span>
-<span id="L53"><span class="lineNum">      53</span>              : </span>
-<span id="L54"><span class="lineNum">      54</span>              :   </span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           5 :   factory ClientFailure.decode(ClientException? exception) {</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">          10 :     log(exception.toString(), name: 'FAILURE[CLIENTEXCEPTION]');</span></span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">           5 :     return ClientFailure._(</span></span>
-<span id="L58"><span class="lineNum">      58</span>              :       exception: exception,</span>
-<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">           5 :       message: exception?.message ?? '',</span></span>
-<span id="L60"><span class="lineNum">      60</span>              :     );</span>
-<span id="L61"><span class="lineNum">      61</span>              :   }</span>
-<span id="L62"><span class="lineNum">      62</span>              :   </span>
-<span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC tlaBgUNC">           0 :   @override</span></span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaUNC">           0 :   List&lt;Object?&gt; get props =&gt; [</span></span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC">           0 :     exception,</span></span>
-<span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :     message,</span></span>
-<span id="L67"><span class="lineNum">      67</span>              :   ];</span>
-<span id="L68"><span class="lineNum">      68</span>              : }</span>
+<span id="L30"><span class="lineNum">      30</span>              : </span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           4 :   @override</span></span>
+<span id="L32"><span class="lineNum">      32</span>              :   bool operator ==(Object other) {</span>
+<span id="L33"><span class="lineNum">      33</span>              :     if (identical(this, other)) {</span>
+<span id="L34"><span class="lineNum">      34</span>              :       return true;</span>
+<span id="L35"><span class="lineNum">      35</span>              :     }</span>
+<span id="L36"><span class="lineNum">      36</span>              : </span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC tlaBgUNC">           0 :     return other is ExceptionFailure &amp;&amp;</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :         other.exception == exception &amp;&amp;</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC">           0 :         other.message == message;</span></span>
+<span id="L40"><span class="lineNum">      40</span>              :   }</span>
+<span id="L41"><span class="lineNum">      41</span>              : </span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC">           0 :   @override</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC">           0 :   int get hashCode =&gt; exception.hashCode ^ message.hashCode;</span></span>
+<span id="L44"><span class="lineNum">      44</span>              : }</span>
+<span id="L45"><span class="lineNum">      45</span>              : </span>
+<span id="L46"><span class="lineNum">      46</span>              : /// Una clase que representa un fallo de tipo cliente http y que extiende de la clase [Failure].</span>
+<span id="L47"><span class="lineNum">      47</span>              : class ClientFailure extends Failure {</span>
+<span id="L48"><span class="lineNum">      48</span>              :   /// La excepción que causó el fallo.</span>
+<span id="L49"><span class="lineNum">      49</span>              :   final ClientException? exception;</span>
+<span id="L50"><span class="lineNum">      50</span>              : </span>
+<span id="L51"><span class="lineNum">      51</span>              :   /// El mensaje que describe el fallo.</span>
+<span id="L52"><span class="lineNum">      52</span>              :   /// El mensaje tiene valor de `error.toString()`.</span>
+<span id="L53"><span class="lineNum">      53</span>              :   @override</span>
+<span id="L54"><span class="lineNum">      54</span>              :   final String message;</span>
+<span id="L55"><span class="lineNum">      55</span>              : </span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC tlaBgGNC">           5 :   ClientFailure._({</span></span>
+<span id="L57"><span class="lineNum">      57</span>              :     required this.message,</span>
+<span id="L58"><span class="lineNum">      58</span>              :     this.exception,</span>
+<span id="L59"><span class="lineNum">      59</span>              :   });</span>
+<span id="L60"><span class="lineNum">      60</span>              : </span>
+<span id="L61"><span class="lineNum">      61</span>              :   /// - Constructor factory para crear un [ClientFailure] a partir de una [ClientException].</span>
+<span id="L62"><span class="lineNum">      62</span>              :   /// - Inicializa el mensaje con el valor de `error.toString()`.</span>
+<span id="L63"><span class="lineNum">      63</span>              :   /// - Registra el error en el log.</span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">           5 :   factory ClientFailure.decode(ClientException? exception) {</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">          10 :     log(exception.toString(), name: 'FAILURE[CLIENTEXCEPTION]');</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">           5 :     return ClientFailure._(</span></span>
+<span id="L67"><span class="lineNum">      67</span>              :       exception: exception,</span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">           5 :       message: exception?.message ?? '',</span></span>
+<span id="L69"><span class="lineNum">      69</span>              :     );</span>
+<span id="L70"><span class="lineNum">      70</span>              :   }</span>
+<span id="L71"><span class="lineNum">      71</span>              : </span>
+<span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC">           4 :   @override</span></span>
+<span id="L73"><span class="lineNum">      73</span>              :   bool operator ==(Object other) {</span>
+<span id="L74"><span class="lineNum">      74</span>              :     if (identical(this, other)) {</span>
+<span id="L75"><span class="lineNum">      75</span>              :       return true;</span>
+<span id="L76"><span class="lineNum">      76</span>              :     }</span>
+<span id="L77"><span class="lineNum">      77</span>              : </span>
+<span id="L78"><span class="lineNum">      78</span> <span class="tlaUNC tlaBgUNC">           0 :     return other is ClientFailure &amp;&amp;</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaUNC">           0 :         other.exception == exception &amp;&amp;</span></span>
+<span id="L80"><span class="lineNum">      80</span> <span class="tlaUNC">           0 :         other.message == message;</span></span>
+<span id="L81"><span class="lineNum">      81</span>              :   }</span>
+<span id="L82"><span class="lineNum">      82</span>              : </span>
+<span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC">           0 :   @override</span></span>
+<span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 :   int get hashCode =&gt; exception.hashCode ^ message.hashCode;</span></span>
+<span id="L85"><span class="lineNum">      85</span>              : }</span>
         </pre>
               </td>
             </tr>

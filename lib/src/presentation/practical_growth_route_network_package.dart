@@ -24,7 +24,7 @@ final class PracticalGrowthRouteNetworkPackage {
   ///   final result = await package.getCategories();
   ///   result.fold(
   ///    (failure) => log('Error: $failure'),
-  ///    (categories) => log('Categories: $categories'),
+  ///    (categories) => log('Categorias: $categories'),
   ///   );
   ///   ```
   Future<Either<Failure, List<String>>> getCategories() {

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2024-08-08 10:36:44</td>
+            <td class="headerValue">2024-08-09 17:06:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -62,23 +62,29 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : import 'package:http/http.dart' as http;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span>              : /// A class that provides utility methods for handling HTTP client responses.</span>
-<span id="L4"><span class="lineNum">       4</span>              : </span>
-<span id="L5"><span class="lineNum">       5</span>              : final class HttpClientResponse {</span>
-<span id="L6"><span class="lineNum">       6</span>              :   /// Validates the given HTTP response.</span>
-<span id="L7"><span class="lineNum">       7</span>              :   /// </span>
-<span id="L8"><span class="lineNum">       8</span>              :   /// Throws a [http.ClientException] if the response status code is not in the range 200-299.</span>
-<span id="L9"><span class="lineNum">       9</span>              :   /// </span>
-<span id="L10"><span class="lineNum">      10</span>              :   /// Takes a [http.Response] as input and validates the response status code is not in the range 200-299</span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC tlaBgGNC">           1 :   static void validate(http.Response response) {</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           4 :     if (response.statusCode &lt; 200 || response.statusCode &gt;= 300) {</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           1 :       throw http.ClientException(</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           2 :         'Status code: ${response.statusCode}',</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :         response.request?.url,</span></span>
-<span id="L16"><span class="lineNum">      16</span>              :       );</span>
-<span id="L17"><span class="lineNum">      17</span>              :     }</span>
-<span id="L18"><span class="lineNum">      18</span>              :   }</span>
-<span id="L19"><span class="lineNum">      19</span>              : }</span>
+<span id="L3"><span class="lineNum">       3</span>              : /// Una clase que proporciona métodos de utilidad para manejar respuestas de clientes HTTP.</span>
+<span id="L4"><span class="lineNum">       4</span>              : final class HttpClientResponse {</span>
+<span id="L5"><span class="lineNum">       5</span>              :   /// Valida la respuesta HTTP proporcionada.</span>
+<span id="L6"><span class="lineNum">       6</span>              :   ///</span>
+<span id="L7"><span class="lineNum">       7</span>              :   /// Lanza una [http.ClientException] si el código de estado de respuesta no está en el rango 200-299.</span>
+<span id="L8"><span class="lineNum">       8</span>              :   ///</span>
+<span id="L9"><span class="lineNum">       9</span>              :   /// Toma una [http.Response] como entrada y valida que el código de estado de respuesta no esté en el rango 200-299.</span>
+<span id="L10"><span class="lineNum">      10</span>              :   ///</span>
+<span id="L11"><span class="lineNum">      11</span>              :   /// - Ejemplo:</span>
+<span id="L12"><span class="lineNum">      12</span>              :   ///</span>
+<span id="L13"><span class="lineNum">      13</span>              :   ///  ```</span>
+<span id="L14"><span class="lineNum">      14</span>              :   ///  final response = await client.get(Uri.parse(uri));</span>
+<span id="L15"><span class="lineNum">      15</span>              :   ///  HttpClientResponse.validate(response);</span>
+<span id="L16"><span class="lineNum">      16</span>              :   ///  ```</span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC tlaBgGNC">           1 :   static void validate(http.Response response) {</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           4 :     if (response.statusCode &lt; 200 || response.statusCode &gt;= 300) {</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           1 :       throw http.ClientException(</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           2 :         'Status code: ${response.statusCode}',</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           1 :         response.request?.url,</span></span>
+<span id="L22"><span class="lineNum">      22</span>              :       );</span>
+<span id="L23"><span class="lineNum">      23</span>              :     }</span>
+<span id="L24"><span class="lineNum">      24</span>              :   }</span>
+<span id="L25"><span class="lineNum">      25</span>              : }</span>
         </pre>
               </td>
             </tr>
