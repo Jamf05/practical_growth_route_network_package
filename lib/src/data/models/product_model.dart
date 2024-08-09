@@ -1,14 +1,29 @@
 import 'package:practical_growth_route_network_package/src/data/models/rating_model.dart';
 
+/// Modelo que representa un producto.
 final class ProductModel {
+  /// Identificador único del producto.
   final int? id;
+
+  /// Título del producto.
   final String? title;
+
+  /// Precio del producto.
   final double? price;
+
+  /// Descripción del producto.
   final String? description;
+
+  /// Categoría del producto.
   final String? category;
+
+  /// URL de la imagen del producto.
   final String? image;
+
+  /// Modelo que representa la calificación del producto.
   final RatingModel? rating;
 
+  /// Constructor de la clase [ProductModel].
   const ProductModel({
     this.id,
     this.title,
@@ -19,6 +34,9 @@ final class ProductModel {
     this.rating,
   });
 
+  /// Crea una instancia de [ProductModel] a partir de [json] que es un mapa de tipo `Map<String, dynamic>`.
+  ///
+  /// [json] es un mapa que contiene los datos del producto.
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
         id: int.tryParse((json['id']).toString()),
         title: json['title'],
@@ -38,6 +56,9 @@ final class ProductModel {
             : null,
       );
 
+  /// Convierte la instancia de [ProductModel] a un mapa de tipo `Map<String, dynamic>`.
+  ///
+  /// Retorna un mapa que representa los datos del producto.
   Map<String, dynamic> toJson() => {
         'id': id,
         'title': title,

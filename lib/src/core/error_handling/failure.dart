@@ -1,6 +1,5 @@
-/// Abstract class representing a failure.
-/// This class extends Equatable to allow for value comparison.
+/// Clase abstracta que representa un fallo.
 abstract class Failure {
-  /// A message describing the failure.
+  /// El mensaje que describe el fallo.
   String get message;
 }

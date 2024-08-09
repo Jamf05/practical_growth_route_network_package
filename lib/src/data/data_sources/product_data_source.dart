@@ -8,21 +8,21 @@ import 'package:practical_growth_route_network_package/src/data/models/product_m
 
 /// Interface that defines the operations for fetching products.
 abstract class ProductDataSource {
-  /// Fetches a list of products.
+  /// Obtiene una lista de categorías de productos.
   Future<List<ProductModel>> getProducts();
 
   /// Fetches a list of product categories.
   Future<List<String>> getCategories();
 
-  /// Fetches a list of products by category.
+  /// Obtiene una lista de productos por categoría.
   ///
-  /// [category] is the [String] category to filter products by.
+  /// [category] es la categoría String para filtrar los productos.
   Future<List<ProductModel>> getProductsByCategory({
     required String category,
   });
 }
 
-/// Implementation of [ProductDataSource] that uses an HTTP client to fetch products.
+/// Implementación de [ProductDataSource] que utiliza un cliente HTTP para obtener productos.
 class ProductDataSourceImpl implements ProductDataSource {
   final http.Client client;
 
@@ -31,12 +31,12 @@ class ProductDataSourceImpl implements ProductDataSource {
     required this.client,
   });
 
-  /// Fetches a list of products from a remote API.
+  /// Obtiene una lista de productos desde una API remota.
   ///
-  /// Makes a GET request to the URL defined in the environment and decodes
-  /// the JSON response into a list of [ProductModel].
+  /// Realiza una solicitud GET a la URL definida en el entorno y decodifica
+  /// la respuesta JSON en una lista de [ProductModel].
   ///
-  /// Throws [ClientFailure], [ErrorFailure], or [ExceptionFailure] in case of errors.
+  /// Lanza [ClientFailure], [ErrorFailure], o [ExceptionFailure] en caso de errores.
   @override
   Future<List<ProductModel>> getProducts() async {
     try {
@@ -58,12 +58,12 @@ class ProductDataSourceImpl implements ProductDataSource {
     }
   }
 
-  /// Fetches a list of product categories from a remote API.
+  /// Obtiene una lista de categorías de productos desde una API remota.
   ///
-  /// Makes a GET request to the URL defined in the environment and decodes
-  /// the JSON response into a list of strings representing categories.
+  /// Realiza una solicitud GET a la URL definida en el entorno y decodifica
+  /// la respuesta JSON en una lista de [String].
   ///
-  /// Throws [ClientFailure], [ErrorFailure], or [ExceptionFailure] in case of errors.
+  /// Lanza [ClientFailure], [ErrorFailure], o [ExceptionFailure] en caso de errores.
   @override
   Future<List<String>> getCategories() async {
     try {
@@ -85,14 +85,12 @@ class ProductDataSourceImpl implements ProductDataSource {
     }
   }
 
-  /// Fetches a list of products by category from a remote API.
+  /// Obtiene una lista de productos por categoría desde una API remota.
   ///
-  /// Makes a GET request to the URL defined in the environment with the specified category
-  /// and decodes the JSON response into a list of [ProductModel].
+  /// Realiza una solicitud GET a la URL definida en el entorno con el parámetro de categoría
+  /// y decodifica la respuesta JSON en una lista de [ProductModel].
   ///
-  /// [category] is the [String] category to filter products by.
-  ///
-  /// Throws [ClientFailure], [ErrorFailure], or [ExceptionFailure] in case of errors.
+  /// Lanza [ClientFailure], [ErrorFailure], o [ExceptionFailure] en caso de errores.
   @override
   Future<List<ProductModel>> getProductsByCategory({
     required String category,

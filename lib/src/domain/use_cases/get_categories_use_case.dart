@@ -5,19 +5,19 @@ import 'package:practical_growth_route_network_package/src/core/types/no_params.
 import 'package:practical_growth_route_network_package/src/core/types/use_case.dart';
 import 'package:practical_growth_route_network_package/src/domain/repositories/product_repository.dart';
 
-/// Use case for getting categories from the product repository.
+/// Caso de uso para obtener categorías del repositorio de productos.
 class GetCategoriesUseCase implements UseCase<List<String>, NoParams> {
   final ProductRepository productRepository;
 
-  /// Constructor for GetCategoriesUseCase.
-  /// Requires a [ProductRepository] instance.
+  /// Constructor para GetCategoriesUseCase.
+  /// Requiere una instancia de [ProductRepository] como parámetro requerido..
   GetCategoriesUseCase({
     required this.productRepository,
   });
 
-  /// Calls the getCategories method from the product repository.
-  /// Returns a [Future] that resolves to an [Either] containing
-  /// a [Failure] or a list of category strings.
+  /// Llama al método getCategories del repositorio de productos.
+  /// Retorna un [Future] que resuelve a un [Either] que contiene
+  /// un [Failure] o una lista de cadenas de categorías.
   @override
   Future<Either<Failure, List<String>>> call(NoParams params) async {
     return productRepository.getCategories();

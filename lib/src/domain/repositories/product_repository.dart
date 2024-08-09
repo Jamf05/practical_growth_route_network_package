@@ -2,26 +2,26 @@ import 'package:dartz/dartz.dart';
 import 'package:practical_growth_route_network_package/src/core/error_handling/failure.dart';
 import 'package:practical_growth_route_network_package/src/data/models/product_model.dart';
 
-/// Abstract class representing a repository for managing products.
+/// Clase abstracta que representa un repositorio para la gestión de productos.
 abstract class ProductRepository {
-  /// Fetches a list of products.
+  /// Obtiene una lista de productos.
   ///
-  /// Returns a [Future] that completes with an [Either] containing a [Failure]
-  /// on the left side if an error occurs, or a [List] of [ProductModel] on the right side if successful.
+  /// Retorna un [Future] que se completa con un [Either] que contiene un [Failure]
+  /// en el lado izquierdo si ocurre un error, o una [List] de [ProductModel] en el lado derecho si tiene éxito.
   Future<Either<Failure, List<ProductModel>>> getProducts();
 
-  /// Fetches a list of product categories.
+  /// Obtiene una lista de categorías de productos.
   ///
-  /// Returns a [Future] that completes with an [Either] containing a [Failure]
-  /// on the left side if an error occurs, or a [List] of [String] representing
-  /// the categories on the right side if successful.
+  /// Retorna un [Future] que se completa con un [Either] que contiene un [Failure]
+  /// en el lado izquierdo si ocurre un error, o una [List] de [String] que representa
+  /// las categorías en el lado derecho si tiene éxito.
   Future<Either<Failure, List<String>>> getCategories();
 
-  /// Fetches a list of products filtered by category.
+  /// Obtiene una lista de productos filtrados por categoría.
   ///
-  /// Takes an required [String] parameter [category] which specifies the category to filter products by.
-  /// Returns a [Future] that completes with an [Either] containing a [Failure]
-  /// on the left side if an error occurs, or a [List] of [ProductModel] on the right side if successful.
+  /// Toma un parámetro requerido [String] [category] que especifica la categoría por la cual filtrar los productos.
+  /// Retorna un [Future] que se completa con un [Either] que contiene un [Failure]
+  /// en el lado izquierdo si ocurre un error, o una [List] de [ProductModel] en el lado derecho si tiene éxito.
   Future<Either<Failure, List<ProductModel>>> getProductsByCategory({
     required String category,
   });

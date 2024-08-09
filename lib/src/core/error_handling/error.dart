@@ -2,23 +2,24 @@ import 'dart:developer';
 
 import 'package:practical_growth_route_network_package/src/core/error_handling/failure.dart';
 
-/// A class representing an error failure, extending the [Failure] class.
+/// Una clase que representa un fallo de tipo error y que extiende de la clase [Failure].
 class ErrorFailure extends Failure {
-  /// The error associated with this failure.
+  /// El [error] asociado al fallo.
   final Error? error;
 
-  /// The message describing the failure.
+  /// El mensaje que describe el fallo.
+  /// El mensaje tiene valor de `error.toString()`.
   @override
   final String message;
 
-  /// Private constructor for [ErrorFailure].
   ErrorFailure._({
     required this.message,
     this.error,
   });
 
-  /// Factory constructor to create an [ErrorFailure] from an [Error].
-  /// Logs the error and its stack trace.
+  /// - Constructor factory para crear un [ErrorFailure] a partir de un [Error].
+  /// - Inicializa el mensaje con el valor de `error.toString()`.
+  /// - Registra el error en el log.
   factory ErrorFailure.decode(
     Error? error,
   ) {

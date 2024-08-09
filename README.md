@@ -11,22 +11,21 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-A package in flutter that makes it easy to connect to the fakestoreapi.com API. It exposes use cases that, in the context of a clean architecture, are used to encapsulate the connection and management of the data provided by the fakestoreapi API.
+Un paquete en Flutter que facilita la conexión con la API de fakestoreapi.com. Expone casos de uso que, en el contexto de una arquitectura limpia, se utilizan para encapsular la conexión y gestión de los datos proporcionados por la API de fakestoreapi.
 
-## Features
+## Características
 
-- The `GetCategoriesUseCase` class connects to `https://fakestoreapi.com/products`
-- The `GetProductsByCategoryUseCase` class connects to `https://fakestoreapi.com/products/categories`
-- The `GetProductsUseCase` class connects to `https://fakestoreapi.com/products/category`
+- Provee un acceso fácil, robusto y centralizado para consumo de los siguientes endpoint por medio de la instancia de la clase `PracticalGrowthRouteNetworkPackage`:
+  - El método `getProducts()` consume el endpoint https://fakestoreapi.com/products.
+  - El método `getCategories()` consume el endpoint https://fakestoreapi.com//products/categories.
+  - El método `getProductsByCategory()` recibe una categoría y consume el endpoint https://fakestoreapi.com//products/category.
 
-## Getting started
+### Requisitos
 
-### Requirements
-
-- Any Operating System (ie. MacOS X, Linux, Windows)
-- Any IDE with Flutter SDK installed (ie. IntelliJ, Android Studio, VSCode etc)
-- A little knowledge of Dart and Flutter
-- Version summary:
+- Cualquier sistema operativo (por ejemplo, MacOS X, Linux, Windows)
+- Cualquier IDE con Flutter SDK instalado (por ejemplo, IntelliJ, Android Studio, VSCode, etc.)
+- Un poco de conocimiento de Dart y Flutter
+- Resumen de versiones:
 
     ```plain
     Flutter 3.22.3 • channel stable • https://github.com/flutter/flutter.git
@@ -35,44 +34,32 @@ A package in flutter that makes it easy to connect to the fakestoreapi.com API. 
     Tools • Dart 3.4.4 • DevTools 2.34.3
     ```
 
-### Packages
+### Paquetes
 
-| Name                                                                              | Usage                                               |
-| --------------------------------------------------------------------------------- | --------------------------------------------------- |
-| [**Dartz**](https://pub.dev/packages/dartz)                                       | Functional Error Handling                           |
-| [**Equatable**](https://pub.dev/packages/equatable)                               | A Dart package that helps to implement value based equality without needing to explicitly override == and hashCode. |
-| [**Http**](https://pub.dev/packages/http)                                         | A composable, multi-platform, Future-based API for HTTP requests. |
+| Nombre                                                                           | Uso                                                |
+| -------------------------------------------------------------------------------- | -------------------------------------------------- |
+| [**Dartz**](https://pub.dev/packages/dartz)                                      | Manejo funcional de errores                        |
+| [**Http**](https://pub.dev/packages/http)                                        | Una API basada en Future, multi-plataforma y componible para solicitudes HTTP. |
 
-## Usage
-
-### Build Dependencies
+## Ejemplo de uso
 
 ```dart
-final http.Client client = http.Client();
-final ProductDataSource dataSource = ProductDataSourceImpl(client: client);
-final ProductRepository repository = ProductRepositoryImpl(productDataSource: dataSource);
-final GetProductsUseCase getProductsUseCase = GetProductsUseCase(productRepository: repository);
-```
+/// Crear instancia del paquete
+final PracticalGrowthRouteNetworkPackage package = PracticalGrowthRouteNetworkPackage();
 
-### Call the use case
-
-```dart
-final result = await getProductsUseCase.call(const NoParams());
+/// Llama el método que obtiene una lista de categorías
+final result = await package.getCategories();
 result.fold(
-  (failure) {
-    // TODO: handle error
-  },
-  (products) {
-    // TODO: handle response
-  },
+ (failure) => log('Error: $failure'),
+ (categories) => log('Categories: $categories'),
 );
 ```
 
-### Error handling
+### Manejo de errores
 
-Internally, the package works with an assignment of Failures based on the error or exception that you want to handle. The assignment of Failures is done like this:
+Internamente, el paquete trabaja con una asignación de un `Failure` basado en el error o excepción que se desea manejar. La asignación de un `Failure` se realiza de la siguiente manera:
 
-Example:
+Ejemplo:
 
 | Error   | Exception          | Failure              |
 |---------|--------------------|----------------------|
@@ -80,6 +67,6 @@ Example:
 | x       | `Exception`        | `ExceptionFailure`   |
 | x       | `ClientException`  | `ClientFailure`      |
 
-## Additional information
+## Información adicional
 
 [**Jorge A. Mogotocoro F.**](https://www.linkedin.com/in/jorgemogotocoro/)

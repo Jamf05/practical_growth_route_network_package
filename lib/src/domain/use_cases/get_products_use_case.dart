@@ -5,22 +5,22 @@ import 'package:practical_growth_route_network_package/src/core/types/use_case.d
 import 'package:practical_growth_route_network_package/src/data/models/product_model.dart';
 import 'package:practical_growth_route_network_package/src/domain/repositories/product_repository.dart';
 
-/// Use case for fetching a list of products.
+/// Caso de uso para obtener una lista de productos.
 class GetProductsUseCase implements UseCase<List<ProductModel>, NoParams> {
   final ProductRepository productRepository;
 
-  /// Constructor for [GetProductsUseCase].
+  /// Constructor para [GetProductsUseCase].
   ///
-  /// Takes a [ProductRepository] as a required parameter.
+  /// Requiere una instancia de [ProductRepository] como parámetro requerido.
   GetProductsUseCase({
     required this.productRepository,
   });
 
-  /// Calls the use case to fetch products.
+  /// Llama al caso de uso para obtener productos.
   ///
-  /// Takes [NoParams] as input and returns a [Future] that completes with an [Either]
-  /// containing a [Failure] on the left side if an error occurs, or a [List] of [ProductModel]
-  /// on the right side if successful.
+  /// Toma [NoParams] como entrada y devuelve un [Future] que se completa con un [Either]
+  /// que contiene un [Failure] en el lado izquierdo si ocurre un error, o una [List] de [ProductModel]
+  /// en el lado derecho si tiene éxito.
   @override
   Future<Either<Failure, List<ProductModel>>> call(NoParams params) async {
     return productRepository.getProducts();
