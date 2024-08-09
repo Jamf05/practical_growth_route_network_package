@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:practical_growth_route_network_package/practical_growth_route_network_package.dart';
 
 class MyAppChangeNotifier extends ChangeNotifier {
-  final GetProductsUseCase _getProductsUseCase;
+  final PracticalGrowthRouteNetworkPackage _package;
 
   MyAppChangeNotifier({
-    required GetProductsUseCase getProductsUseCase,
-  }) : _getProductsUseCase = getProductsUseCase;
+    required PracticalGrowthRouteNetworkPackage package,
+  }) : _package = package;
 
   final _products = <ProductModel>[];
   List<ProductModel> get products => _products;
@@ -19,7 +19,7 @@ class MyAppChangeNotifier extends ChangeNotifier {
   void getProducts() async {
     _isLoading = true;
     notifyListeners();
-    final result = await _getProductsUseCase.call(const NoParams());
+    final result = await _package.getProducts();
     result.fold(
       (failure) => log('Error: $failure'),
       (products) {
