@@ -4,11 +4,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'package:practical_growth_route_network_package/core/error_handling/exception.dart';
-import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
-import 'package:practical_growth_route_network_package/data/models/product_model.dart';
-import 'package:practical_growth_route_network_package/domain/repositories/product_repository.dart';
-import 'package:practical_growth_route_network_package/domain/use_cases/get_products_by_category_use_case.dart';
+import 'package:practical_growth_route_network_package/src/core/error_handling/exception.dart';
+import 'package:practical_growth_route_network_package/src/core/error_handling/failure.dart';
+import 'package:practical_growth_route_network_package/src/data/models/product_model.dart';
+import 'package:practical_growth_route_network_package/src/domain/repositories/product_repository.dart';
+import 'package:practical_growth_route_network_package/src/domain/use_cases/get_products_by_category_use_case.dart';
 
 import '../../helpers/dummy_data.dart';
 import '../../helpers/json_reader.dart';

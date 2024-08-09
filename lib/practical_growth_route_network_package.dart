@@ -1,21 +1,12 @@
 library practical_growth_route_network_package;
 
-export 'package:practical_growth_route_network_package/domain/use_cases/get_categories_use_case.dart';
-export 'package:practical_growth_route_network_package/domain/use_cases/get_products_by_category_use_case.dart';
-export 'package:practical_growth_route_network_package/domain/use_cases/get_products_use_case.dart';
+export 'src/data/models/product_model.dart' show ProductModel;
+export 'src/data/models/rating_model.dart' show RatingModel;
 
-export 'package:practical_growth_route_network_package/domain/repositories/product_repository.dart';
-export 'package:practical_growth_route_network_package/data/repositories/product_repository_impl.dart';
+export 'src/core/types/no_params.dart' show NoParams;
 
-export 'package:practical_growth_route_network_package/data/data_sources/product_data_source.dart';
+export 'src/presentation/binding/get_categories_binding.dart' show GetCategoriesBinding;
+export 'src/presentation/binding/get_products_binding.dart' show GetProductsBinding;
+export 'src/presentation/binding/get_products_by_category_binding.dart' show GetProductsByCategoryBinding;
 
-export 'package:practical_growth_route_network_package/data/models/product_model.dart';
-export 'package:practical_growth_route_network_package/data/models/rating_model.dart';
-
-export 'package:practical_growth_route_network_package/core/types/no_params.dart';
-
-export 'package:practical_growth_route_network_package/core/error_handling/error.dart';
-export 'package:practical_growth_route_network_package/core/error_handling/exception.dart';
-export 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
-
-export 'package:practical_growth_route_network_package/core/env/environment.dart';
+export 'src/presentation/practical_growth_route_network_package.dart' show PracticalGrowthRouteNetworkPackage;

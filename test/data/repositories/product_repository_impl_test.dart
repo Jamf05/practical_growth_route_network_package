@@ -4,13 +4,13 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:practical_growth_route_network_package/core/error_handling/exception.dart';
-import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
-import 'package:practical_growth_route_network_package/data/data_sources/product_data_source.dart';
-import 'package:practical_growth_route_network_package/data/models/product_model.dart';
+import 'package:practical_growth_route_network_package/src/core/error_handling/exception.dart';
+import 'package:practical_growth_route_network_package/src/core/error_handling/failure.dart';
+import 'package:practical_growth_route_network_package/src/data/data_sources/product_data_source.dart';
+import 'package:practical_growth_route_network_package/src/data/models/product_model.dart';
 
-import 'package:practical_growth_route_network_package/data/repositories/product_repository_impl.dart';
-import 'package:practical_growth_route_network_package/domain/repositories/product_repository.dart';
+import 'package:practical_growth_route_network_package/src/data/repositories/product_repository_impl.dart';
+import 'package:practical_growth_route_network_package/src/domain/repositories/product_repository.dart';
 
 import '../../helpers/dummy_data.dart';
 import '../../helpers/json_reader.dart';

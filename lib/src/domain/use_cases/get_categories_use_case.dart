@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
-import 'package:practical_growth_route_network_package/core/types/no_params.dart';
-import 'package:practical_growth_route_network_package/core/types/use_case.dart';
-import 'package:practical_growth_route_network_package/domain/repositories/product_repository.dart';
+
+import 'package:practical_growth_route_network_package/src/core/error_handling/failure.dart';
+import 'package:practical_growth_route_network_package/src/core/types/no_params.dart';
+import 'package:practical_growth_route_network_package/src/core/types/use_case.dart';
+import 'package:practical_growth_route_network_package/src/domain/repositories/product_repository.dart';
 
 /// Use case for getting categories from the product repository.
 class GetCategoriesUseCase implements UseCase<List<String>, NoParams> {

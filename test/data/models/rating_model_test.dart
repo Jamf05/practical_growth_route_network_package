@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:practical_growth_route_network_package/data/models/rating_model.dart';
+import 'package:practical_growth_route_network_package/src/data/models/rating_model.dart';
 
 import '../../helpers/dummy_data.dart';
 import '../../helpers/json_reader.dart';

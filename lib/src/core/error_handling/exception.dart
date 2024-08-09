@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:http/http.dart';
-import 'package:practical_growth_route_network_package/core/error_handling/failure.dart';
+import 'package:practical_growth_route_network_package/src/core/error_handling/failure.dart';
 
 /// A class representing a failure caused by an exception.
 /// Extends the [Failure] class.
