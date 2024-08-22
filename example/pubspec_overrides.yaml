@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: practical_growth_route_network_package
+dependency_overrides:
+  practical_growth_route_network_package:
+    path: ..

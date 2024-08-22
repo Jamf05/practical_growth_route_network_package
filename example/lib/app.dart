@@ -1,4 +1,4 @@
-import 'package:example/change_notifier.dart';
+import 'package:example_network_package/change_notifier.dart';
 import 'package:flutter/material.dart';
 
 import 'package:practical_growth_route_network_package/practical_growth_route_network_package.dart';
